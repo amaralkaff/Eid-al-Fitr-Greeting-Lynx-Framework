@@ -1,0 +1,117 @@
+/* CardTemplate.css - Styling for greeting card templates */
+
+.card-template {
+  width: 100%;
+  height: 100%;
+  border-radius: 10px;
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+  box-sizing: border-box;
+}
+
+.card-template.preview {
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
+  transition: transform 0.3s ease;
+}
+
+/* Default template */
+.template-default {
+  /* Simplify the background pattern */
+  background-image: linear-gradient(45deg, rgba(255,255,255,0.2), transparent);
+  background-size: 20px 20px;
+}
+
+/* Elegant template */
+.template-elegant {
+  border: 5px solid rgba(192, 158, 107, 0.5); /* Gold border */
+}
+
+.elegant-decoration {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: 
+    radial-gradient(rgba(192, 158, 107, 0.2), transparent 20%);
+}
+
+/* Festive template */
+.template-festive {
+  /* Use a single gradient instead of multiple */
+  background-image: linear-gradient(135deg, rgba(0, 128, 55, 0.1), transparent);
+}
+
+.festive-decoration {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  /* Replace complex radial gradients with a simpler pattern */
+  background-image: 
+    linear-gradient(135deg, rgba(0, 128, 55, 0.1) 0%, transparent 50%);
+  background-size: 20px 20px;
+}
+
+.template-message {
+  text-align: center;
+  padding: 15px;
+  max-width: 90%;
+  width: 100%;
+  display: block;
+  font-weight: normal;
+  letter-spacing: normal;
+  animation: message-fade-in 0.5s ease-out;
+  background-color: rgba(255, 255, 255, 0.1); /* Slight background to ensure visibility */
+  border-radius: 5px;
+  box-shadow: 0 1px 5px rgba(0, 0, 0, 0.05);
+}
+
+@keyframes message-fade-in {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.template-stickers {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+}
+
+.template-sticker {
+  position: absolute;
+  font-size: 24px;
+}
+
+.animated-sticker {
+  animation: sticker-pop 0.3s ease-out;
+}
+
+@keyframes sticker-pop {
+  from {
+    transform: scale(0);
+  }
+  to {
+    transform: scale(1);
+  }
+}
+
+/* Position stickers in different places */
+.sticker-0 { top: 10%; left: 10%; }
+.sticker-1 { top: 10%; right: 10%; }
+.sticker-2 { bottom: 10%; left: 10%; }
+.sticker-3 { bottom: 10%; right: 10%; }
+.sticker-4 { top: 50%; left: 50%; transform: translate(-50%, -50%); } 

@@ -1,0 +1,33 @@
+/* Fonts.css - Web font imports for the card application */
+
+/* System fonts with better fallbacks */
+.font-arial { 
+  font-family: Arial, Helvetica, sans-serif; 
+}
+
+.font-times { 
+  font-family: "Times New Roman", Times, serif; 
+}
+
+.font-courier { 
+  font-family: "Courier New", Courier, monospace; 
+}
+
+/* Arabic font with system fallbacks */
+.font-arabic { 
+  font-family: Arial, sans-serif; 
+}
+
+/* Fix for text styles in Lynx */
+text.font-arial, 
+text.font-times, 
+text.font-courier, 
+text.font-arabic {
+  width: 100%;
+}
+
+/* Set directionality for Arabic text */
+text.font-arabic {
+  direction: rtl;
+  text-align: right;
+} 

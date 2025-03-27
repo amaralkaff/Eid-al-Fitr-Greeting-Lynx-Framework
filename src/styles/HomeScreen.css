@@ -1,0 +1,244 @@
+/* HomeScreen.css - Eid greeting app styling 2025 Edition - Arabic Style */
+
+@font-face {
+  font-family: 'Amiri';
+  src: url('https://fonts.gstatic.com/s/amiri/v17/J7aRnpd8CGxBHpUrtLMA7w.woff2') format('woff2');
+  font-weight: normal;
+  font-style: normal;
+}
+
+:root {
+  --primary-color: #006C51; /* Rich green - common in Arabic design */
+  --accent-color: #D4AF37; /* Arabic gold */
+  --text-light: #FFFFFF;
+  --text-dark: #1A1A1A;
+  --background-color: #F8F7F2;
+  --section-bg: #FFFFFF;
+  --border-color: #E0E0E0;
+  --hover-color: rgba(0, 108, 81, 0.1);
+  --card-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+  --comic-border: 4px solid #1A1A1A;
+  --comic-shadow: 8px 8px 0px #1A1A1A;
+  --gradient-bg: linear-gradient(135deg, #006C51 0%, #004C38 100%);
+  --arabic-pattern: rgba(0, 108, 81, 0.05);
+  --arabic-font: 'Amiri', serif;
+  --border-radius: 20px;
+  --geometric-pattern: url("data:image/svg+xml,%3Csvg width='80' height='80' viewBox='0 0 80 80' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23006C51' fill-opacity='0.08'%3E%3Cpath d='M0 0h40v40H0V0zm40 40h40v40H40V40zm0-40h2l-2 2V0zm0 4l4-4h2l-6 6V4zm0 4l8-8h2L40 12V8zm0 4L52 0h2L40 16v-4zm0 4L56 0h2L40 20v-4zm0 4L60 0h2L40 24v-4zm0 4L64 0h2L40 28v-4zm0 4L68 0h2L40 32v-4zm0 4L72 0h2L40 36v-4zm0 4L76 0h2L40 40v-4zm4 0L80 4v2L44 40h-4zm4 0L80 8v2L48 40h-4zm4 0L80 12v2L52 40h-4zm4 0L80 16v2L56 40h-4zm4 0L80 20v2L60 40h-4zm4 0L80 24v2L64 40h-4zm4 0L80 28v2L68 40h-4zm4 0L80 32v2L72 40h-4zm4 0L80 36v4L76 40h-4z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+}
+
+.home-screen {
+  background-color: var(--background-color);
+  background-image: var(--geometric-pattern);
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
+  font-family: var(--arabic-font);
+  position: relative;
+}
+
+.header {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 30px 20px;
+  background: linear-gradient(135deg, #006C51 0%, #004C38 100%);
+  box-shadow: var(--comic-shadow);
+  border-bottom: var(--comic-border);
+  position: relative;
+}
+
+/* Fix for any inline-block displays - replace with flex */
+.header::before,
+.header::after {
+  content: "";
+  position: absolute;
+  width: 30px;
+  height: 30px;
+  background-color: var(--accent-color);
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.header::before {
+  left: 20px;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.header::after {
+  right: 20px;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.app-title {
+  font-size: 32px;
+  font-weight: bold;
+  color: var(--text-light);
+  margin-bottom: 5px;
+  text-align: center;
+  text-shadow: 4px 4px 0px rgba(0, 0, 0, 0.2);
+}
+
+.app-subtitle {
+  font-size: 16px;
+  color: var(--accent-color);
+  text-align: center;
+}
+
+.eid-graphics {
+  width: 100%;
+  padding: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.eid-graphics::before,
+.eid-graphics::after {
+  content: "";
+  position: absolute;
+  width: 60px;
+  height: 60px;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='60' height='60' viewBox='0 0 60 60'%3E%3Cpath fill='%23D4AF37' d='M30 0L35.9 20.3L57.1 20.3L40.6 32.9L46.5 53.2L30 40.6L13.5 53.2L19.4 32.9L2.9 20.3L24.1 20.3Z'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-size: contain;
+  opacity: 0.2;
+}
+
+.eid-graphics::before {
+  top: -30px;
+  left: 10%;
+  transform: rotate(15deg);
+}
+
+.eid-graphics::after {
+  bottom: -30px;
+  right: 10%;
+  transform: rotate(-15deg);
+}
+
+.eid-image {
+  width: 100%;
+  height: auto;
+  border-radius: var(--border-radius);
+  box-shadow: var(--comic-shadow);
+  border: var(--comic-border);
+  transform: rotate(-2deg);
+}
+
+.instructions {
+  padding: 25px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.instruction-title {
+  font-size: 20px;
+  font-weight: bold;
+  color: var(--primary-color);
+  margin-bottom: 10px;
+  text-align: center;
+}
+
+.instruction-text {
+  font-size: 16px;
+  color: var(--text-dark);
+  text-align: center;
+  line-height: 1.5;
+}
+
+.instruction-features {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  margin-top: 20px;
+}
+
+.feature-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  animation: bounce-in 0.5s cubic-bezier(0.17, 0.67, 0.83, 0.67) var(--delay, 0.3s) both;
+}
+
+@keyframes bounce-in {
+  0% {
+    opacity: 0;
+    transform: translateY(20px) scale(0.8);
+  }
+  50% {
+    transform: translateY(-10px) scale(1.05);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+.feature-item:nth-child(2) {
+  --delay: 0.5s;
+}
+
+.feature-item:nth-child(3) {
+  --delay: 0.7s;
+}
+
+.feature-icon {
+  font-size: 28px;
+  margin-bottom: 8px;
+  color: var(--primary-color);
+}
+
+.feature-text {
+  font-size: 14px;
+  color: var(--text-dark);
+  font-weight: 600;
+  font-family: var(--arabic-font);
+}
+
+.create-button {
+  margin: 10px 30px 30px;
+  padding: 20px;
+  background: linear-gradient(135deg, #006C51 0%, #004C38 100%);
+  border-radius: 25px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-shadow: var(--comic-shadow);
+  border: var(--comic-border);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.create-button:active {
+  transform: scale(0.96) translate(4px, 4px);
+  box-shadow: 4px 4px 0px #1A1A1A;
+}
+
+.button-text {
+  color: var(--text-light);
+  font-size: 18px;
+  font-weight: bold;
+  letter-spacing: 1px;
+  text-shadow: 2px 2px 0px rgba(0, 0, 0, 0.3);
+}
+
+.app-branding {
+  margin-top: auto;
+  padding: 20px;
+  display: flex;
+  justify-content: center;
+}
+
+.copyright {
+  font-size: 12px;
+  color: var(--text-dark);
+  opacity: 0.7;
+} 

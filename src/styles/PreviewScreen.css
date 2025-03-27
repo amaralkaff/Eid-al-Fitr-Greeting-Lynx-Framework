@@ -1,0 +1,392 @@
+/* PreviewScreen.css - Card preview styling - Arabic Style 2025 */
+
+@font-face {
+  font-family: 'Amiri';
+  src: url('https://fonts.gstatic.com/s/amiri/v17/J7aRnpd8CGxBHpUrtLMA7w.woff2') format('woff2');
+  font-weight: normal;
+  font-style: normal;
+}
+
+:root {
+  --primary-color: #006C51; /* Rich green - common in Arabic design */
+  --accent-color: #D4AF37; /* Arabic gold */
+  --text-light: #FFFFFF;
+  --text-dark: #1A1A1A;
+  --background-color: #F8F7F2;
+  --social-color: #1877F2; /* Facebook blue */
+  --save-color: #4CAF50; /* Save green */
+  --message-color: #F44336; /* Message red */
+  --card-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+  --comic-shadow: 8px 8px 0px #1A1A1A;
+  --status-color: #333333; /* Status message background */
+  --disabled-color: #8c8c8c; /* Disabled button color */
+  --arabic-font: 'Amiri', serif;
+  --border-radius: 20px;
+  --geometric-pattern: url("data:image/svg+xml,%3Csvg width='80' height='80' viewBox='0 0 80 80' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23006C51' fill-opacity='0.08'%3E%3Cpath d='M0 0h40v40H0V0zm40 40h40v40H40V40zm0-40h2l-2 2V0zm0 4l4-4h2l-6 6V4zm0 4l8-8h2L40 12V8zm0 4L52 0h2L40 16v-4zm0 4L56 0h2L40 20v-4zm0 4L60 0h2L40 24v-4zm0 4L64 0h2L40 28v-4zm0 4L68 0h2L40 32v-4zm0 4L72 0h2L40 36v-4zm0 4L76 0h2L40 40v-4zm4 0L80 4v2L44 40h-4zm4 0L80 8v2L48 40h-4zm4 0L80 12v2L52 40h-4zm4 0L80 16v2L56 40h-4zm4 0L80 20v2L60 40h-4zm4 0L80 24v2L64 40h-4zm4 0L80 28v2L68 40h-4zm4 0L80 32v2L72 40h-4zm4 0L80 36v4L76 40h-4z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+}
+
+.preview-screen {
+  background-color: var(--background-color);
+  background-image: var(--geometric-pattern);
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  font-family: var(--arabic-font);
+}
+
+.preview-header {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding: 15px;
+  background: linear-gradient(135deg, #006C51 0%, #004C38 100%);
+  color: var(--text-light);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  position: relative;
+}
+
+.preview-header::before,
+.preview-header::after {
+  content: "۞";
+  font-size: 18px;
+  color: var(--accent-color);
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.preview-header::before {
+  left: 60px;
+}
+
+.preview-header::after {
+  right: 20px;
+}
+
+.back-button {
+  width: 40px;
+  height: 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 20px;
+  background-color: rgba(255, 255, 255, 0.2);
+  margin-right: 15px;
+  transition: background-color 0.2s ease;
+  border: 2px solid var(--accent-color);
+  z-index: 1;
+}
+
+.back-button:active {
+  background-color: rgba(255, 255, 255, 0.4);
+  transform: scale(0.95);
+}
+
+.screen-title {
+  font-size: 20px;
+  font-weight: bold;
+  text-shadow: 2px 2px 0px rgba(0, 0, 0, 0.3);
+  letter-spacing: 1px;
+}
+
+.preview-content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.card-display-container {
+  flex: 1;
+  margin: 20px;
+  height: 350px;
+  border-radius: var(--border-radius);
+  box-shadow: var(--comic-shadow);
+  border: 4px solid var(--accent-color);
+  overflow: hidden;
+  position: relative;
+  animation: card-reveal 0.5s ease-out;
+  transform: rotate(-1deg);
+}
+
+@keyframes card-reveal {
+  from {
+    transform: translateY(50px) rotate(-1deg);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0) rotate(-1deg);
+    opacity: 1;
+  }
+}
+
+.card-message {
+  text-align: center;
+  margin-bottom: 20px;
+  line-height: 1.5;
+  animation: text-fade 0.8s ease-out;
+  font-family: var(--arabic-font);
+}
+
+@keyframes text-fade {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.stickers-container {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+}
+
+.sticker {
+  position: absolute;
+  font-size: 24px;
+  animation: sticker-pop 0.3s ease-out;
+}
+
+@keyframes sticker-pop {
+  from {
+    transform: scale(0);
+  }
+  to {
+    transform: scale(1);
+  }
+}
+
+.share-options {
+  padding: 20px;
+  background-color: white;
+  border-top-left-radius: var(--border-radius);
+  border-top-right-radius: var(--border-radius);
+  box-shadow: 0 -5px 10px rgba(0, 0, 0, 0.1);
+  border-top: 3px solid var(--accent-color);
+  border-left: 3px solid var(--accent-color);
+  border-right: 3px solid var(--accent-color);
+  position: relative;
+  margin-top: 10px;
+}
+
+.share-options::before {
+  content: "☪";
+  position: absolute;
+  top: -15px;
+  left: 20px;
+  width: 30px;
+  height: 30px;
+  background-color: var(--accent-color);
+  color: var(--primary-color);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 18px;
+  z-index: 1;
+}
+
+.share-title {
+  font-size: 18px;
+  font-weight: bold;
+  text-align: center;
+  margin-bottom: 20px;
+  color: var(--primary-color);
+  border-bottom: 2px solid var(--accent-color);
+  padding-bottom: 10px;
+  position: relative;
+}
+
+.share-title::after {
+  content: "";
+  position: absolute;
+  bottom: -2px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 60px;
+  height: 2px;
+  background-color: var(--primary-color);
+}
+
+.share-buttons {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  margin-bottom: 15px;
+}
+
+.share-button {
+  padding: 15px;
+  border-radius: var(--border-radius);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 30%;
+  transition: transform 0.2s ease, opacity 0.3s ease;
+  box-shadow: 5px 5px 0px rgba(0, 0, 0, 0.2);
+  border: 2px solid var(--accent-color);
+}
+
+.share-button:active {
+  transform: scale(0.95) translate(3px, 3px);
+  box-shadow: 2px 2px 0px rgba(0, 0, 0, 0.2);
+}
+
+.share-button.disabled {
+  opacity: 0.6;
+}
+
+.share-button.social {
+  background: linear-gradient(135deg, #1877F2 0%, #0e5ab9 100%);
+}
+
+.share-button.save {
+  background: linear-gradient(135deg, #4CAF50 0%, #388E3C 100%);
+}
+
+.share-button.message {
+  background: linear-gradient(135deg, #F44336 0%, #C62828 100%);
+}
+
+.share-icon {
+  font-size: 28px;
+  margin-bottom: 8px;
+  text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.3);
+}
+
+.share-text {
+  color: white;
+  font-size: 14px;
+  text-align: center;
+  font-weight: 600;
+  text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.3);
+  font-family: var(--arabic-font);
+}
+
+.edit-button {
+  margin: 15px;
+  padding: 16px;
+  background: linear-gradient(135deg, #D4AF37 0%, #B49A31 100%);
+  border-radius: 25px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 0;
+  box-shadow: var(--comic-shadow);
+  border: 3px solid var(--primary-color);
+  transition: all 0.2s ease;
+  position: relative;
+  transform: rotate(-1deg);
+}
+
+.edit-button::before,
+.edit-button::after {
+  content: "★";
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  color: var(--primary-color);
+}
+
+.edit-button::before {
+  left: 20px;
+}
+
+.edit-button::after {
+  right: 20px;
+}
+
+.edit-button:active {
+  transform: scale(0.96) translate(4px, 4px) rotate(-1deg);
+  box-shadow: 4px 4px 0px #1A1A1A;
+}
+
+.edit-button text {
+  color: var(--text-dark);
+  font-size: 18px;
+  font-weight: bold;
+  font-family: var(--arabic-font);
+  letter-spacing: 1px;
+  text-shadow: 1px 1px 0px rgba(255, 255, 255, 0.5);
+}
+
+/* Status message */
+.status-banner {
+  background-color: var(--status-color);
+  color: white;
+  padding: 15px;
+  margin: 10px 20px;
+  border-radius: var(--border-radius);
+  text-align: center;
+  animation: status-slide 0.3s ease-out;
+  box-shadow: var(--comic-shadow);
+  border: 2px solid var(--accent-color);
+  position: relative;
+  overflow: hidden;
+}
+
+.status-banner::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 5px;
+  background: linear-gradient(90deg, 
+    var(--accent-color) 0%, 
+    var(--accent-color) 10%, 
+    transparent 10%, 
+    transparent 20%, 
+    var(--accent-color) 20%, 
+    var(--accent-color) 30%, 
+    transparent 30%, 
+    transparent 40%, 
+    var(--accent-color) 40%, 
+    var(--accent-color) 50%, 
+    transparent 50%, 
+    transparent 60%, 
+    var(--accent-color) 60%, 
+    var(--accent-color) 70%, 
+    transparent 70%, 
+    transparent 80%, 
+    var(--accent-color) 80%, 
+    var(--accent-color) 90%, 
+    transparent 90%, 
+    transparent 100%
+  );
+}
+
+@keyframes status-slide {
+  from {
+    transform: translateY(-20px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+/* Add a separate class that can be used with bindtap condition */
+.share-buttons-container {
+  position: relative;
+}
+
+/* Add an overlay for when buttons are disabled that prevents clicks */
+.buttons-disabled-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: transparent;
+  display: none;
+}
+
+.buttons-disabled-overlay.active {
+  display: block;
+} 
